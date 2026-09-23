@@ -1,32 +1,36 @@
-# React + TypeScript + Vite
+# Nick's Job Search
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A fast, client-side React application that I built, which uses advanced Google Search Operators (Dorking) to query Applicant Tracking Systems (ATS) directly. By bypassing traditional job board algorithms, this tool helps you find the most recent and relevant job postings straight from company career pages.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* **Targeted ATS Search:** Pre-configured queries for over 30 major platforms including Greenhouse, Lever, Workday, Ashby, and direct career pages.
+* **Granular Filtering:** Filter results by job title, specific locations (using native datalist autocomplete), and posting recency (e.g., past 24 hours, past week).
+* **Shareable State:** Search parameters automatically sync with the URL parameters, allowing you to bookmark or share specific searches natively.
+* **Progress Tracking:** Clicked links are visually marked with a checkmark and dimmed, ensuring you do not duplicate efforts during a search session. State resets automatically on new searches.
+* **Privacy First:** Fully static frontend application. No databases, no user tracking, and no server-side processing required.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **Framework:** React with TypeScript
+* **Build Tool:** Vite
+* **Styling:** Tailwind CSS
+* **Components:** Headless UI
+* **Package Manager:** Yarn
 
-## Expanding the Oxlint configuration
+## Getting Started
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+To run this project locally, clone the repository and install the dependencies using Yarn.
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+```bash
+# Clone the repository
+git clone [https://github.com/nung22/nicks-job-search.git](https://github.com/nung22/nicks-job-search.git)
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+# Navigate to the project directory
+cd nicks-job-search
+
+# Install dependencies
+yarn install
+
+# Start the development server
+yarn dev
