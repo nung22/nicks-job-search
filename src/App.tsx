@@ -308,7 +308,7 @@ export default function App() {
                   <div
                     className={`w-4 h-4 rounded-sm shrink-0 flex items-center justify-center border transition-colors ${
                       isClicked
-                        ? "bg-blue-600 border-blue-600"
+                        ? "bg-green-600 border-green-600"
                         : "bg-white border-white"
                     }`}
                   >
