@@ -112,13 +112,13 @@ const SEARCH_TARGETS: SearchTarget[] = [
     id: "other-ats",
     name: "Other ATS's",
     queryPrefix:
-      "site:bamboohr.com OR site:recruiting.ultipro.com OR site:careerplug.com OR site:paycomonline.net OR site:successfactors.com OR site:taleo.net OR site:brassring.com OR site:csod.com OR site:freshteam.com OR site:comeet.com OR site:careers-page.com OR site:jobscore.com OR site:applicantpro.com OR site:applicantstack.com OR site:careers.hireology.com OR site:pageuppeople.com OR site:work.fountain.com OR site:workstream.us OR site:recruitingbypaycor.com",
+      "(site:bamboohr.com OR site:recruiting.ultipro.com OR site:careerplug.com OR site:paycomonline.net OR site:successfactors.com OR site:taleo.net OR site:brassring.com OR site:csod.com OR site:freshteam.com OR site:comeet.com OR site:careers-page.com OR site:jobscore.com OR site:applicantpro.com OR site:applicantstack.com OR site:careers.hireology.com OR site:pageuppeople.com OR site:work.fountain.com OR site:workstream.us OR site:recruitingbypaycor.com)",
   },
   {
     id: "other-pages",
     name: "Other Pages",
     queryPrefix:
-      "inurl:employment OR inurl:vacancies OR inurl:opportunities OR inurl:openings OR inurl:join-us OR inurl:work-with-us",
+      "(inurl:employment OR inurl:vacancies OR inurl:opportunities OR inurl:openings OR inurl:join-us OR inurl:work-with-us)",
   },
 ];
 
@@ -236,7 +236,7 @@ export default function App() {
         <h1 className="text-4xl font-bold mb-6">Nick's Job Search</h1>
         <form
           onSubmit={handleSearch}
-          className="flex flex-wrap gap-2 justify-center"
+          className="flex flex-col sm:flex-row items-center gap-2 justify-center"
         >
           <Input
             type="text"
@@ -262,7 +262,7 @@ export default function App() {
           <Select
             value={timeFilter}
             onChange={(e) => setTimeFilter(e.target.value)}
-            className="bg-black border border-gray-600 text-white px-3 py-1 rounded min-w-37.5"
+            className="bg-black border border-gray-600 text-white px-3 py-1 rounded min-w-50 sm:min-w-40"
           >
             {TIME_OPTIONS.map((option) => (
               <option key={option.value} value={option.value}>
@@ -272,7 +272,7 @@ export default function App() {
           </Select>
           <Button
             type="submit"
-            className="bg-gray-300 text-black px-4 py-1 rounded font-semibold hover:bg-white transition-colors cursor-pointer"
+            className="w-fit bg-gray-300 text-black px-4 py-1 rounded font-semibold hover:bg-white transition-colors cursor-pointer"
           >
             Start
           </Button>
@@ -308,7 +308,7 @@ export default function App() {
                   <div
                     className={`w-4 h-4 rounded-sm shrink-0 flex items-center justify-center border transition-colors ${
                       isClicked
-                        ? "bg-green-600 border-green-600"
+                        ? "bg-blue-600 border-blue-600"
                         : "bg-white border-white"
                     }`}
                   >
