@@ -11,7 +11,7 @@ const SEARCH_TARGETS: SearchTarget[] = [
   {
     id: "greenhouse",
     name: "Greenhouse",
-    queryPrefix: "site:boards.greenhouse.io",
+    queryPrefix: "site:greenhouse.io",
   },
   { id: "lever", name: "Lever", queryPrefix: "site:jobs.lever.co" },
   { id: "ashby", name: "Ashby", queryPrefix: "site:jobs.ashbyhq.com" },
@@ -146,9 +146,9 @@ const TIME_OPTIONS: TimeOption[] = [
   { label: "Past 4 Hours", value: "qdr:h4", urlParam: "4hours" },
   { label: "Past 8 Hours", value: "qdr:h8", urlParam: "8hours" },
   { label: "Past 12 Hours", value: "qdr:h12", urlParam: "12hours" },
-  { label: "Past 24 Hours", value: "qdr:h24", urlParam: "24hours" },
-  { label: "Past 48 Hours", value: "qdr:h48", urlParam: "48hours" },
-  { label: "Past 72 Hours", value: "qdr:h72", urlParam: "72hours" },
+  { label: "Past 24 Hours", value: "qdr:d", urlParam: "24hours" },
+  { label: "Past 48 Hours", value: "qdr:d2", urlParam: "48hours" },
+  { label: "Past 72 Hours", value: "qdr:d3", urlParam: "72hours" },
   { label: "Past Week", value: "qdr:w", urlParam: "7days" },
   { label: "Past Month", value: "qdr:m", urlParam: "30days" },
   { label: "Any Time", value: "", urlParam: "any" },
@@ -215,10 +215,12 @@ export default function App() {
   };
 
   const generateGoogleLink = (queryPrefix: string): string => {
-    let query = `${queryPrefix} "${jobTitle}"`;
+    let query = `"${jobTitle}" ${queryPrefix}`;
+
     if (location.trim() !== "") {
-      query += ` "${location}"`;
+      query += ` ${location}`;
     }
+
     const url = new URL("https://www.google.com/search");
     url.searchParams.set("q", query);
     if (timeFilter) {
